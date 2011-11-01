@@ -1,0 +1,15 @@
+{% load comments_tags i18n %}
+
+{{ comment.depth }}:{{ comment.id }} - {{ comment.comment }} / {{ comment.user }} / {{ comment.profile.ip_address }}
+{% if perms.comments.add_commentrating %}
+    <a href="{% url comments-rating-minus comment.id %}" class="xcomments_rate">-</a>
+    <span class="xcomments_rating">{{ comment.rating }}</span>
+    <a href="{% url comments-rating-plus comment.id %}" class="xcomments_rate">+</a>
+{% endif %}
+<br/>
+{% if perms.comments.can_moderate and comment.is_public %}
+    <a href="{% url comments-moderate-hide comment.id %}" class="xcomments_moderate">{% trans 'Hide' %}</a>
+{% endif %}
+{% if comment.depth < 25 and user.is_authenticated and perms.comments.add_comment  %}
+<a href="{% comment_form_target %}" class="xcomments_comment" id="xcomments_{{ comment.id }}" data-parent="{{ comment.id }}" data-object_pk="{{ object_pk }}" data-content_type="{{ content_type }}">{% trans 'Reply' %}</a>
+{% endif %}

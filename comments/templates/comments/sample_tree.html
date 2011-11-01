@@ -1,0 +1,26 @@
+{% load comments_tags %}
+
+{% for comment in comment_list|fill_tree|annotate_tree %}
+
+{% ifchanged comment.parent_id %}{% else %}
+    </li>
+{% endifchanged %}
+
+{% if not comment.open and not comment.close %}
+    </li>
+{% endif %}
+
+{% if comment.open %}
+    <ul>
+{% endif %}
+
+<li{% if comment.last %} class="last"{% endif %} id="xcomments_{{ comment.id }}_place">
+
+{% include "comments/comment.html" with comment=comment object_pk=object_pk content_type=content_type user=user perms=perms only %}
+
+{% for close in comment.close %}
+    </li>
+    </ul>
+{% endfor %}
+
+{% endfor %}

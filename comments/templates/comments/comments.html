@@ -1,0 +1,18 @@
+{% load i18n static comments_tags %}
+
+{% get_static_prefix as STATIC_URL %}
+
+<script type="text/javascript" src="{{STATIC_URL}}comments/js/comments.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}comments/js/actions.js"></script>
+
+<div class="xcomments" id="xcomments">
+
+    <div id="xcomments_root_place">
+    {% include 'comments/sample_tree.html' %}
+    </div>
+    {% if user.is_authenticated and perms.comments.add_comment  %}
+    <a href="{% comment_form_target %}" class="xcomments_comment" id="xcomments_root" data-parent="" data-object_pk="{{ object_pk }}" data-content_type="{{ content_type }}">{% trans 'Add comment' %}</a>
+    {% else %}
+        <span>Please login</span>
+    {% endif %}
+</div>

@@ -1,0 +1,9 @@
+include README.rst
+include CONTRIBUTORS
+include LICENSE
+recursive-include comments/locale *
+recursive-include comments/migrations *
+recursive-include comments/static *
+recursive-include comments/templates *
+recursive-include comments/templatetags *
+recursive-include comments/views *
