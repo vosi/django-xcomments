@@ -24,12 +24,12 @@ TODO
 
 COMPATIBILITY
 -------------
-Django >= 1.3
-jQuery
-jQuery Form (http://jquery.malsup.com/form/)
-South (why is it still not in django.core?)
+* Django >= 1.3
+* jQuery
+* jQuery Form (http://jquery.malsup.com/form/)
+* South (why is it still not in django.core?)
 
 CHANGELOG
 ---------
 
-01.11.11 Initial alpha version
+* 01.11.11 Initial alpha version
