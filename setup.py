@@ -9,7 +9,7 @@ kwargs = {
     'url': 'https://github.com/vosi/django-xcomments',
     'keywords': 'django,comments',
     'license': 'BSD',
-    'packages': ['comments',],
+    'packages': ['xcomments',],
     'include_package_data': True,
     'install_requires': ['setuptools'],
     'zip_safe': False,
